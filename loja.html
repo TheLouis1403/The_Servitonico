@@ -1,178 +1,168 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Loja The_Servitônico</title>
-  <style>
-    :root {
-      --bg-color-dark: #121212;
-      --text-color-dark: #eee;
-      --button-bg-dark: #00ff99;
-      --button-bg-hover-dark: #00cc77;
-      --footer-color-dark: #555;
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Loja The_Servitônico</title>
+<style>
+  :root {
+    --bg-dark: #2e1a47;
+    --text-dark: #ddd6f7;
+    --button-bg-dark: #5a3e8a;
+    --button-bg-hover-dark: #452f6e;
+    --footer-dark: #a595c1;
 
-      --bg-color-light: #f0f0f0;
-      --text-color-light: #121212;
-      --button-bg-light: #008f5b;
-      --button-bg-hover-light: #006d40;
-      --footer-color-light: #888;
-    }
+    --bg-light: #f5f3fa;
+    --text-light: #3a1f62;
+    --button-bg-light: #8c71bf;
+    --button-bg-hover-light: #6e57a1;
+    --footer-light: #6b5a85;
+  }
 
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: var(--bg-color-dark);
-      color: var(--text-color-dark);
-      text-align: center;
-      padding: 40px 20px;
-      transition: background 0.3s, color 0.3s;
-    }
+  body {
+    margin: 0; padding: 40px 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-dark);
+    color: var(--text-dark);
+    text-align: center;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
 
-    body.light {
-      background: var(--bg-color-light);
-      color: var(--text-color-light);
-    }
+  body.light {
+    background-color: var(--bg-light);
+    color: var(--text-light);
+  }
 
-    h1 {
-      margin-bottom: 30px;
-      font-size: 2.5rem;
-      color: var(--button-bg-dark);
-      text-shadow: 0 0 10px var(--button-bg-dark);
-      transition: color 0.3s, text-shadow 0.3s;
-    }
+  h1 {
+    font-weight: 700;
+    font-size: 2.8rem;
+    margin-bottom: 2rem;
+    letter-spacing: 1.5px;
+  }
 
-    body.light h1 {
-      color: var(--button-bg-light);
-      text-shadow: 0 0 10px var(--button-bg-light);
-    }
+  .button-container {
+    max-width: 360px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+  }
 
-    .button-container {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-      max-width: 320px;
-      margin: 0 auto;
-    }
+  a.button {
+    background-color: var(--button-bg-dark);
+    color: var(--text-dark);
+    padding: 18px 25px;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 1.3rem;
+    text-decoration: none;
+    box-shadow: 0 4px 10px rgba(90, 62, 138, 0.6);
+    transition: background-color 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 
-    a.button {
-      background: var(--button-bg-dark);
-      color: var(--text-color-dark);
-      text-decoration: none;
-      padding: 18px 30px;
-      font-weight: bold;
-      border-radius: 8px;
-      font-size: 1.3rem;
-      box-shadow: 0 4px 12px rgba(0, 255, 153, 0.5);
-      transition: background-color 0.3s ease, color 0.3s ease;
-      display: block;
-    }
+  a.button:hover {
+    background-color: var(--button-bg-hover-dark);
+  }
 
-    a.button:hover {
-      background: var(--button-bg-hover-dark);
-      color: #fff;
-    }
+  .price {
+    font-weight: 400;
+    font-size: 1.05rem;
+    margin-top: 6px;
+    opacity: 0.8;
+  }
 
-    body.light a.button {
-      background: var(--button-bg-light);
-      color: var(--text-color-light);
-      box-shadow: 0 4px 12px rgba(0, 143, 91, 0.5);
-    }
+  body.light a.button {
+    background-color: var(--button-bg-light);
+    color: var(--text-light);
+    box-shadow: 0 4px 10px rgba(140, 113, 191, 0.6);
+  }
 
-    body.light a.button:hover {
-      background: var(--button-bg-hover-light);
-      color: #fff;
-    }
+  body.light a.button:hover {
+    background-color: var(--button-bg-hover-light);
+  }
 
-    .price {
-      font-weight: normal;
-      font-size: 1rem;
-      color: #aaa;
-      margin-top: 6px;
-      transition: color 0.3s;
-    }
+  .price.light {
+    opacity: 0.7;
+  }
 
-    body.light .price {
-      color: #555;
-    }
+  footer {
+    margin-top: 3rem;
+    font-size: 0.9rem;
+    color: var(--footer-dark);
+  }
 
-    footer {
-      margin-top: 50px;
-      font-size: 0.9rem;
-      color: var(--footer-color-dark);
-      transition: color 0.3s;
-    }
+  body.light footer {
+    color: var(--footer-light);
+  }
 
-    body.light footer {
-      color: var(--footer-color-light);
-    }
+  #themeToggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: transparent;
+    border: 2px solid var(--button-bg-dark);
+    color: var(--button-bg-dark);
+    padding: 10px 18px;
+    border-radius: 8px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    z-index: 1000;
+  }
 
-    #themeToggle {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      background: transparent;
-      border: 2px solid var(--button-bg-dark);
-      color: var(--button-bg-dark);
-      padding: 8px 16px;
-      border-radius: 8px;
-      cursor: pointer;
-      font-weight: bold;
-      transition: background-color 0.3s, color 0.3s, border-color 0.3s;
-      z-index: 1000;
-    }
+  #themeToggle:hover {
+    background-color: var(--button-bg-dark);
+    color: var(--bg-dark);
+  }
 
-    #themeToggle:hover {
-      background-color: var(--button-bg-dark);
-      color: #121212;
-      border-color: var(--button-bg-dark);
-    }
+  body.light #themeToggle {
+    border-color: var(--button-bg-light);
+    color: var(--button-bg-light);
+  }
 
-    body.light #themeToggle {
-      border-color: var(--button-bg-light);
-      color: var(--button-bg-light);
-    }
-
-    body.light #themeToggle:hover {
-      background-color: var(--button-bg-light);
-      color: #f0f0f0;
-      border-color: var(--button-bg-light);
-    }
-  </style>
+  body.light #themeToggle:hover {
+    background-color: var(--button-bg-light);
+    color: var(--bg-light);
+  }
+</style>
 </head>
 <body>
-  <button id="themeToggle">Modo Claro</button>
+<button id="themeToggle">Modo Claro</button>
 
-  <h1>Loja The_Servitônico</h1>
+<h1>Loja The_Servitônico</h1>
 
-  <div class="button-container">
-    <a href="https://mpago.li/1g85YEx" target="_blank" class="button">
-      The_Servitônico [VIP]
-      <div class="price">R$ 15,00</div>
-    </a>
+<div class="button-container">
+  <a href="https://mpago.li/1g85YEx" target="_blank" class="button">
+    The_Servitônico [VIP]
+    <span class="price">R$ 15,00</span>
+  </a>
 
-    <a href="https://mpago.li/2Q83Wc5" target="_blank" class="button">
-      The_Servitônico [GIGATOMIZE]
-      <div class="price">R$ 15,00</div>
-    </a>
+  <a href="https://mpago.li/2Q83Wc5" target="_blank" class="button">
+    The_Servitônico [GIGATOMIZE]
+    <span class="price">R$ 15,00</span>
+  </a>
 
-    <a href="https://mpago.li/2XweXoH" target="_blank" class="button">
-      The_Servitônico [ULTRA]
-      <div class="price">R$ 25,00</div>
-    </a>
-  </div>
+  <a href="https://mpago.li/2XweXoH" target="_blank" class="button">
+    The_Servitônico [ULTRA]
+    <span class="price">R$ 25,00</span>
+  </a>
+</div>
 
-  <footer>
-    * Clique no botão para abrir a página de pagamento Mercado Pago.
-  </footer>
+<footer>
+  * Clique no botão para abrir a página de pagamento Mercado Pago.
+</footer>
 
-  <script>
-    const toggleBtn = document.getElementById('themeToggle');
-    const body = document.body;
+<script>
+  const btn = document.getElementById('themeToggle');
+  const body = document.body;
 
-    toggleBtn.addEventListener('click', () => {
-      body.classList.toggle('light');
-      toggleBtn.textContent = body.classList.contains('light') ? 'Modo Escuro' : 'Modo Claro';
-    });
-  </script>
+  btn.addEventListener('click', () => {
+    body.classList.toggle('light');
+    btn.textContent = body.classList.contains('light') ? 'Modo Escuro' : 'Modo Claro';
+  });
+</script>
 </body>
 </html>
