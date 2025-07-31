@@ -106,7 +106,6 @@
       color: var(--footer-color-light);
     }
 
-    /* Botão tema */
     #themeToggle {
       position: fixed;
       top: 20px;
@@ -146,6 +145,11 @@
   <h1>Loja The_Servitônico</h1>
 
   <div class="button-container">
+    <a href="https://mpago.li/1g85YEx" target="_blank" class="button">
+      The_Servitônico [VIP]
+      <div class="price">R$ 15,00</div>
+    </a>
+
     <a href="https://mpago.li/2Q83Wc5" target="_blank" class="button">
       The_Servitônico [GIGATOMIZE]
       <div class="price">R$ 15,00</div>
@@ -167,13 +171,8 @@
 
     toggleBtn.addEventListener('click', () => {
       body.classList.toggle('light');
-      if (body.classList.contains('light')) {
-        toggleBtn.textContent = 'Modo Escuro';
-      } else {
-        toggleBtn.textContent = 'Modo Claro';
-      }
+      toggleBtn.textContent = body.classList.contains('light') ? 'Modo Escuro' : 'Modo Claro';
     });
   </script>
 </body>
 </html>
-
