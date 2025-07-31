@@ -265,9 +265,19 @@
   const btn = document.getElementById('themeToggle');
   const body = document.body;
 
+  // Verifica preferência salva no localStorage
+  if (localStorage.getItem('theme') === 'light') {
+    body.classList.add('light');
+    btn.textContent = 'Modo Escuro';
+  }
+
   btn.addEventListener('click', () => {
     body.classList.toggle('light');
-    btn.textContent = body.classList.contains('light') ? 'Modo Escuro' : 'Modo Claro';
+    const isLight = body.classList.contains('light');
+    btn.textContent = isLight ? 'Modo Escuro' : 'Modo Claro';
+
+    // Salva preferência no localStorage
+    localStorage.setItem('theme', isLight ? 'light' : 'dark');
   });
 </script>
 </body>
