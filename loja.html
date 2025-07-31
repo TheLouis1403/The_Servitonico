@@ -1,167 +1,274 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Loja - The_Servitônico</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --bg-dark: #1f1330;
-      --text-dark: #e7e0fb;
-      --button-bg-dark: #6f4eb3;
-      --button-hover-dark: #5a3e8a;
-      --footer-dark: #b9a7dd;
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Loja - The_Servitônico</title>
+<style>
+  :root {
+    --bg-dark: #2e1a47;
+    --text-dark: #ddd6f7;
+    --button-bg-dark: #5a3e8a;
+    --button-bg-hover-dark: #452f6e;
+    --footer-dark: #a595c1;
 
-      --bg-light: #f9f7fd;
-      --text-light: #2c1754;
-      --button-bg-light: #a78bfa;
-      --button-hover-light: #8b6edc;
-      --footer-light: #7e6ca5;
-    }
+    --bg-light: #f5f3fa;
+    --text-light: #3a1f62;
+    --button-bg-light: #8c71bf;
+    --button-bg-hover-light: #6e57a1;
+    --footer-light: #6b5a85;
 
-    body {
-      margin: 0;
-      padding: 40px 20px;
-      font-family: 'Poppins', sans-serif;
-      background-color: var(--bg-dark);
-      color: var(--text-dark);
-      text-align: center;
-      transition: background-color 0.3s ease, color 0.3s ease;
-    }
+    --accent-purple: #7a59a8;
+    --accent-purple-light: #9f82cc;
+  }
 
-    body.light {
-      background-color: var(--bg-light);
-      color: var(--text-light);
-    }
+  body {
+    margin: 0; padding: 40px 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-dark);
+    color: var(--text-dark);
+    text-align: center;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
 
-    h1 {
-      font-weight: 700;
-      font-size: 3rem;
-      margin-bottom: 2rem;
-      letter-spacing: 1.2px;
-      text-shadow: 0 2px 6px rgba(0,0,0,0.3);
-    }
+  body.light {
+    background-color: var(--bg-light);
+    color: var(--text-light);
+  }
 
-    .button-container {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 1.2rem;
-      margin-bottom: 2rem;
-    }
+  h1 {
+    font-weight: 700;
+    font-size: 2.8rem;
+    margin-bottom: 1rem;
+    letter-spacing: 1.5px;
+  }
 
-    a.button {
-      background-color: var(--button-bg-dark);
-      color: var(--text-dark);
-      padding: 20px 25px;
-      border-radius: 12px;
-      font-weight: 600;
-      font-size: 1.2rem;
-      text-decoration: none;
-      box-shadow: 0 4px 12px rgba(110, 75, 180, 0.5);
-      transition: transform 0.2s ease, background-color 0.3s ease;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      width: 180px;
-    }
+  .button-container {
+    max-width: 480px;
+    margin: 0 auto 2rem;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+  }
 
-    a.button:hover {
-      background-color: var(--button-hover-dark);
-      transform: scale(1.03);
-    }
+  a.button {
+    background-color: var(--button-bg-dark);
+    color: var(--text-dark);
+    padding: 18px 25px;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 1.3rem;
+    text-decoration: none;
+    box-shadow: 0 4px 10px rgba(90, 62, 138, 0.6);
+    transition: background-color 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 120px;
+  }
 
-    .price {
-      font-weight: 400;
-      font-size: 1rem;
-      margin-top: 5px;
-      opacity: 0.85;
-    }
+  a.button:hover {
+    background-color: var(--button-bg-hover-dark);
+  }
 
-    body.light a.button {
-      background-color: var(--button-bg-light);
-      color: var(--text-light);
-      box-shadow: 0 4px 12px rgba(140, 113, 191, 0.4);
-    }
+  .price {
+    font-weight: 400;
+    font-size: 1.05rem;
+    margin-top: 6px;
+    opacity: 0.8;
+  }
 
-    body.light a.button:hover {
-      background-color: var(--button-hover-light);
-    }
+  body.light a.button {
+    background-color: var(--button-bg-light);
+    color: var(--text-light);
+    box-shadow: 0 4px 10px rgba(140, 113, 191, 0.6);
+  }
 
-    footer {
-      font-size: 0.95rem;
-      color: var(--footer-dark);
-    }
+  body.light a.button:hover {
+    background-color: var(--button-bg-hover-light);
+  }
 
-    body.light footer {
-      color: var(--footer-light);
-    }
+  table {
+    margin: 0 auto;
+    border-collapse: collapse;
+    width: 90%;
+    max-width: 700px;
+    box-shadow: 0 4px 15px rgba(90, 62, 138, 0.4);
+    border-radius: 12px;
+    overflow: hidden;
+  }
 
-    #themeToggle {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      background: transparent;
-      border: 2px solid var(--button-bg-dark);
-      color: var(--button-bg-dark);
-      padding: 10px 16px;
-      border-radius: 8px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      z-index: 1000;
-    }
+  th, td {
+    padding: 14px 20px;
+    border-bottom: 1px solid #5a3e8a;
+    font-weight: 600;
+  }
 
-    #themeToggle:hover {
-      background-color: var(--button-bg-dark);
-      color: var(--bg-dark);
-    }
+  th {
+    background-color: var(--button-bg-dark);
+    color: var(--text-dark);
+  }
 
-    body.light #themeToggle {
-      border-color: var(--button-bg-light);
-      color: var(--button-bg-light);
-    }
+  body.light th {
+    background-color: var(--button-bg-light);
+    color: var(--text-light);
+  }
 
-    body.light #themeToggle:hover {
-      background-color: var(--button-bg-light);
-      color: var(--bg-light);
-    }
-  </style>
+  td {
+    background-color: var(--bg-dark);
+    color: var(--text-dark);
+    font-weight: 500;
+    text-align: center;
+  }
+
+  body.light td {
+    background-color: var(--bg-light);
+    color: var(--text-light);
+  }
+
+  td.feature-name {
+    text-align: left;
+    font-weight: 700;
+    color: var(--accent-purple-light);
+  }
+
+  /* Ícones simples usando Unicode */
+  .checkmark {
+    color: var(--accent-purple);
+    font-weight: 700;
+    font-size: 1.2rem;
+  }
+
+  .crossmark {
+    color: #b055b0;
+    font-weight: 700;
+    font-size: 1.2rem;
+  }
+
+  footer {
+    margin-top: 3rem;
+    font-size: 0.9rem;
+    color: var(--footer-dark);
+  }
+
+  body.light footer {
+    color: var(--footer-light);
+  }
+
+  #themeToggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: transparent;
+    border: 2px solid var(--button-bg-dark);
+    color: var(--button-bg-dark);
+    padding: 10px 18px;
+    border-radius: 8px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    z-index: 1000;
+  }
+
+  #themeToggle:hover {
+    background-color: var(--button-bg-dark);
+    color: var(--bg-dark);
+  }
+
+  body.light #themeToggle {
+    border-color: var(--button-bg-light);
+    color: var(--button-bg-light);
+  }
+
+  body.light #themeToggle:hover {
+    background-color: var(--button-bg-light);
+    color: var(--bg-light);
+  }
+</style>
 </head>
 <body>
-  <button id="themeToggle">☀️</button>
+<button id="themeToggle">Modo Claro</button>
 
-  <h1>KIT's</h1>
+<h1>Loja - The_Servitônico</h1>
 
-  <div class="button-container">
-    <a href="https://mpago.li/1g85YEx" target="_blank" class="button">
-      VIP
-      <span class="price">R$ 15,00</span>
-    </a>
-    <a href="https://mpago.li/2XweXoH" target="_blank" class="button">
-      ULTRA
-      <span class="price">R$ 25,00</span>
-    </a>
-    <a href="https://mpago.li/2Q83Wc5" target="_blank" class="button">
-      GIGATOMIZE
-      <span class="price">R$ 30,00</span>
-    </a>
-  </div>
+<div class="button-container">
+  <a href="https://mpago.li/1g85YEx" target="_blank" class="button">
+    VIP
+    <span class="price">R$ 15,00</span>
+  </a>
 
-  <footer>
-    ( Clique no botão para abrir a página de pagamento )
-  </footer>
+  <a href="https://mpago.li/2XweXoH" target="_blank" class="button">
+    ULTRA
+    <span class="price">R$ 25,00</span>
+  </a>
 
-  <script>
-    const btn = document.getElementById('themeToggle');
-    const body = document.body;
+  <a href="https://mpago.li/2Q83Wc5" target="_blank" class="button">
+    GIGATOMIZE
+    <span class="price">R$ 30,00</span>
+  </a>
+</div>
 
-    btn.addEventListener('click', () => {
-      body.classList.toggle('light');
-      const isLight = body.classList.contains('light');
-      btn.textContent = isLight ? '☀️' : '🌙';
-    });
-  </script>
+<table>
+  <thead>
+    <tr>
+      <th>Benefícios</th>
+      <th>VIP</th>
+      <th>ULTRA</th>
+      <th>GIGATOMIZE</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="feature-name">Itens básicos</td>
+      <td><span class="checkmark">✔</span></td>
+      <td><span class="checkmark">✔</span></td>
+      <td><span class="checkmark">✔</span></td>
+    </tr>
+    <tr>
+      <td class="feature-name">Acesso a área VIP</td>
+      <td><span class="crossmark">✔</span></td>
+      <td><span class="checkmark">✔</span></td>
+      <td><span class="checkmark">✔</span></td>
+    </tr>
+    <tr>
+      <td class="feature-name">Kits exclusivos</td>
+      <td><span class="crossmark">✔</span></td>
+      <td><span class="checkmark">✔</span></td>
+      <td><span class="checkmark">✔</span></td>
+    </tr>
+    <tr>
+      <td class="feature-name">Comandos extras</td>
+      <td><span class="crossmark">✔</span></td>
+      <td><span class="checkmark">✔</span></td>
+      <td><span class="checkmark">✔</span></td>
+    </tr>
+    <tr>
+      <td class="feature-name">Rank especial no chat</td>
+      <td><span class="crossmark">✔</span></td>
+      <td><span class="crossmark">✔</span></td>
+      <td><span class="checkmark">✔</span></td>
+    </tr>
+    <tr>
+      <td class="feature-name">Suporte prioritário</td>
+      <td><span class="crossmark">✘</span></td>
+      <td><span class="crossmark">✘</span></td>
+      <td><span class="checkmark">✔</span></td>
+    </tr>
+  </tbody>
+</table>
+
+<footer>
+  ( Clique no botão para abrir a página de pagamento )
+</footer>
+
+<script>
+  const btn = document.getElementById('themeToggle');
+  const body = document.body;
+
+  btn.addEventListener('click', () => {
+    body.classList.toggle('light');
+    btn.textContent = body.classList.contains('light') ? 'Modo Escuro' : 'Modo Claro';
+  });
+</script>
 </body>
 </html>
