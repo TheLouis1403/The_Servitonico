@@ -1,61 +1,179 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Loja | The_Servitônico</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Loja The_Servitônico</title>
   <style>
+    :root {
+      --bg-color-dark: #121212;
+      --text-color-dark: #eee;
+      --button-bg-dark: #00ff99;
+      --button-bg-hover-dark: #00cc77;
+      --footer-color-dark: #555;
+
+      --bg-color-light: #f0f0f0;
+      --text-color-light: #121212;
+      --button-bg-light: #008f5b;
+      --button-bg-hover-light: #006d40;
+      --footer-color-light: #888;
+    }
+
     body {
-      font-family: sans-serif;
-      background: #f0f0f0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: var(--bg-color-dark);
+      color: var(--text-color-dark);
       text-align: center;
-      padding: 50px;
+      padding: 40px 20px;
+      transition: background 0.3s, color 0.3s;
     }
-    .container {
-      background: white;
-      padding: 30px;
-      border-radius: 12px;
-      max-width: 500px;
-      margin: auto;
-      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+
+    body.light {
+      background: var(--bg-color-light);
+      color: var(--text-color-light);
     }
-    input, button {
-      margin-top: 10px;
-      padding: 10px;
-      width: 80%;
-      font-size: 16px;
+
+    h1 {
+      margin-bottom: 30px;
+      font-size: 2.5rem;
+      color: var(--button-bg-dark);
+      text-shadow: 0 0 10px var(--button-bg-dark);
+      transition: color 0.3s, text-shadow 0.3s;
     }
-    button {
-      background: #2ecc71;
-      color: white;
-      border: none;
+
+    body.light h1 {
+      color: var(--button-bg-light);
+      text-shadow: 0 0 10px var(--button-bg-light);
+    }
+
+    .button-container {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      max-width: 320px;
+      margin: 0 auto;
+    }
+
+    a.button {
+      background: var(--button-bg-dark);
+      color: var(--text-color-dark);
+      text-decoration: none;
+      padding: 18px 30px;
+      font-weight: bold;
+      border-radius: 8px;
+      font-size: 1.3rem;
+      box-shadow: 0 4px 12px rgba(0, 255, 153, 0.5);
+      transition: background-color 0.3s ease, color 0.3s ease;
+      display: block;
+    }
+
+    a.button:hover {
+      background: var(--button-bg-hover-dark);
+      color: #fff;
+    }
+
+    body.light a.button {
+      background: var(--button-bg-light);
+      color: var(--text-color-light);
+      box-shadow: 0 4px 12px rgba(0, 143, 91, 0.5);
+    }
+
+    body.light a.button:hover {
+      background: var(--button-bg-hover-light);
+      color: #fff;
+    }
+
+    .price {
+      font-weight: normal;
+      font-size: 1rem;
+      color: #aaa;
+      margin-top: 6px;
+      transition: color 0.3s;
+    }
+
+    body.light .price {
+      color: #555;
+    }
+
+    footer {
+      margin-top: 50px;
+      font-size: 0.9rem;
+      color: var(--footer-color-dark);
+      transition: color 0.3s;
+    }
+
+    body.light footer {
+      color: var(--footer-color-light);
+    }
+
+    /* Botão tema */
+    #themeToggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: transparent;
+      border: 2px solid var(--button-bg-dark);
+      color: var(--button-bg-dark);
+      padding: 8px 16px;
+      border-radius: 8px;
       cursor: pointer;
-      border-radius: 6px;
+      font-weight: bold;
+      transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+      z-index: 1000;
     }
-    button:hover {
-      background: #27ae60;
+
+    #themeToggle:hover {
+      background-color: var(--button-bg-dark);
+      color: #121212;
+      border-color: var(--button-bg-dark);
     }
-    .pix-btn {
-      margin-top: 20px;
+
+    body.light #themeToggle {
+      border-color: var(--button-bg-light);
+      color: var(--button-bg-light);
+    }
+
+    body.light #themeToggle:hover {
+      background-color: var(--button-bg-light);
+      color: #f0f0f0;
+      border-color: var(--button-bg-light);
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>🛒 Loja do The_Servitônico</h1>
-    <p><strong>Kit VIP</strong> - R$15,00</p>
+  <button id="themeToggle">Modo Claro</button>
 
-    <form action="webhook.php" method="POST">
-      <input type="text" name="nick" placeholder="Digite seu nick no servidor" required><br>
-      <button type="submit">Já paguei, verificar Pix</button>
-    </form>
+  <h1>Loja The_Servitônico</h1>
 
-    <div class="pix-btn">
-      <p>➡️ Ou clique para pagar:</p>
-      <a href="https://mpago.li/1g85YEx" target="_blank">
-        <button type="button">Pagar R$15,00 via Pix</button>
-      </a>
-    </div>
+  <div class="button-container">
+    <a href="https://mpago.li/2Q83Wc5" target="_blank" class="button">
+      The_Servitônico [GIGATOMIZE]
+      <div class="price">R$ 15,00</div>
+    </a>
+
+    <a href="https://mpago.li/2XweXoH" target="_blank" class="button">
+      The_Servitônico [ULTRA]
+      <div class="price">R$ 25,00</div>
+    </a>
   </div>
+
+  <footer>
+    * Clique no botão para abrir a página de pagamento Mercado Pago.
+  </footer>
+
+  <script>
+    const toggleBtn = document.getElementById('themeToggle');
+    const body = document.body;
+
+    toggleBtn.addEventListener('click', () => {
+      body.classList.toggle('light');
+      if (body.classList.contains('light')) {
+        toggleBtn.textContent = 'Modo Escuro';
+      } else {
+        toggleBtn.textContent = 'Modo Claro';
+      }
+    });
+  </script>
 </body>
 </html>
+
