@@ -132,7 +132,6 @@
     color: var(--accent-purple-light);
   }
 
-  /* Ícones simples usando Unicode */
   .checkmark {
     color: var(--accent-purple);
     font-weight: 700;
@@ -238,8 +237,48 @@
     <tr><td class="feature-name">Medalhas inclusas</td><td>3</td><td>8</td><td>8</td></tr>
     <tr><td class="feature-name">Skin customizada (/skin)</td><td><span class="checkmark">✔</span></td><td><span class="checkmark">✔</span></td><td><span class="checkmark">✔</span></td></tr>
     <tr><td class="feature-name">Asas de dragão</td><td><span class="checkmark">✔</span></td><td><span class="checkmark">✔</span></td><td><span class="checkmark">✔</span></td></tr>
-    <tr><td class="feature-name">Asas de coração</td
+    <tr><td class="feature-name">Asas de coração</td></tr>
+  </tbody>
+</table>
+
+<footer>© 2025 The_Servitônico</footer>
+
+<script>
+  const themeToggle = document.getElementById('themeToggle');
+  const body = document.body;
+
+  function updateButtonText() {
+    if (body.classList.contains('light')) {
+      themeToggle.textContent = 'Modo Escuro';
+    } else {
+      themeToggle.textContent = 'Modo Claro';
+    }
+  }
+
+  function loadTheme() {
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'light') {
+      body.classList.add('light');
+    } else {
+      body.classList.remove('light');
+    }
+    updateButtonText();
+  }
+
+  themeToggle.addEventListener('click', () => {
+    body.classList.toggle('light');
+    if (body.classList.contains('light')) {
+      localStorage.setItem('theme', 'light');
+    } else {
+      localStorage.setItem('theme', 'dark');
+    }
+    updateButtonText();
+  });
+
+  loadTheme();
+</script>
+</body>
+</html>
 
 
 
-  
